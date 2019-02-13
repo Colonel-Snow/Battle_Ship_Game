@@ -22,8 +22,10 @@ ostream& operator<<(ostream& os, Game& game){
 	return os;
 }
 
-void Game::placePiece(int x, int y){
+void Game::placePiece(int x, int y, int shipSize){
 	_board[y-1][x-1] = 1; 
+	// TODO: support placing ships larger than 1 block long. Need to check if within bounds
+	// of board, and if ship is being placed horizontally or vertically
 }
 
 bool Game::checkForHit(int x, int y){
