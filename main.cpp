@@ -2,10 +2,10 @@
 
 int main(){
 	Game game;
-	game.placePiece(0,0,2);
+	game.placePieceVertical(1,1,3);
 	std::cout << game;
-	std::cout << std::endl;
-	game.placePiece(2,3,2);
+	std::cout << std::endl << "****************************" << std::endl;
+	game.placePieceHorizontal(2,3,3);
 	std::cout << game;
 	std::cout << std::endl;
 	//game.processHit(1,1);

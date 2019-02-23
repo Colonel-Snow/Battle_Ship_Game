@@ -6,7 +6,8 @@ class Game{
 	public:
 		Game();
 		~Game() = default;
-		void placePiece(int, int, int);
+		void placePieceVertical(int, int, int);
+        void placePieceHorizontal(int, int, int);
 		bool checkForHit(int, int);
 		void processHit(int, int);
 		bool checkForGameOver();
