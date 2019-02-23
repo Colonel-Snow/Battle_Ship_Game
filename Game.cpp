@@ -41,28 +41,24 @@ void Game::placePieceHorizontal(int x, int y, int shipSize){
 	}
 
 	else {
-		for (int i = 0; i < shipSize; ++i) {
-			++x;
-			_board[y - 1][x - 2] = 1;
-		}
-	}
-	// TODO: support placing ships larger than 1 block long. Need to check if within bounds
-	// of board, and if ship is being placed horizontally or vertically
+        for (int i = 0; i < shipSize; ++i) {
+            ++x;
+            _board[y - 1][x - 2] = 1;
+        }
+    }
 }
 
 void Game::placePieceVertical(int x, int y, int shipSize){
-	if ((shipSize > 3) or (x > 5) or (x < 1) or (y > 5) or (y < 1)) {
-		cout << "*** Error: coordinates are wrong ***" << endl << endl;
-	}
+    if ((shipSize > 3) or (x > 5) or (x < 1) or (y > 5) or (y < 1)) {
+        cout << "*** Error: coordinates are wrong ***" << endl << endl;
+    }
 
-	else {
-		for (int i = 0; i < shipSize; ++i) {
-			++y;
-			_board[y - 2][x - 1] = 1;
-		}
-	}
-    // TODO: support placing ships larger than 1 block long. Need to check if within bounds
-    // of board, and if ship is being placed horizontally or vertically
+    else {
+        for (int i = 0; i < shipSize; ++i) {
+            ++y;
+            _board[y - 2][x - 1] = 1;
+        }
+    }
 }
 
 bool Game::checkForHit(int x, int y){
