@@ -1,8 +1,11 @@
-#include "Game.hpp"
+#include "Board.hpp"
+#include "Player.hpp"
 
 int main(){
-	Game game;
-	game.placePieceVertical(1,1,3);
+	Player playerOne;
+	playerOne.showPreviousShots(std::cout);
+	Board game;
+	game.placePieceVertical(1,1,2);
 	std::cout << game;
 	std::cout << std::endl << "****************************" << std::endl;
 	game.placePieceHorizontal(2,3,3);
