@@ -1,6 +1,10 @@
 #include "Player.hpp"
 using std::ostream;
 using std::vector;
+#include <string>
+using std::string;
+
+string Player::getName(){return _name;}
 
 void Player::addLastShot(int xCoord, int yCoord, bool isHit){
     auto coords = std::make_pair(xCoord, yCoord);
