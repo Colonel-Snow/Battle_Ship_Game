@@ -14,8 +14,10 @@ class Player{
         void addPiece(int, int, bool, int);
         std::ostream& showBoard(std::ostream&);
         std::ostream& showPreviousShots(std::ostream&);
+        bool isLost();
     private:
         std::string _name;
         Board _gameBoard;
+        Board _guessBoard;
         std::vector<std::pair<std::pair<int, int>, bool>> _previousShots;
 };

@@ -50,3 +50,7 @@ ostream& Player::showPreviousShots(ostream& os){
         }
     }
 }
+
+bool Player::isLost(){
+    return _gameBoard.shipsRemaining();
+}
