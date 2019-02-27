@@ -62,7 +62,7 @@ ostream& Player::showGuessBoard(std::ostream& os){
 
 void Player::addGuess(int xCoord, int yCoord){
     if(_gameBoard.checkForHit(xCoord, yCoord)){
-        _referenceBoard.processGuess(xCoord, yCoord, "~");
-    }
         _referenceBoard.processGuess(xCoord, yCoord, "X");
+    }
+        _referenceBoard.processGuess(xCoord, yCoord, "~");
 }

@@ -31,7 +31,7 @@ int main(){
 
 	Player playerOne(name1);
 	Player playerTwo(name2);
-/*
+
     // ****** PLACING SHIPS FOR PLAYER 1 ******
 	cout << "        PLACING PIECES     " << endl;
 	cout << " You will be given 5 ships: [1] Big ship, [2] Medium ships, and [2] Small Ships" << endl;
@@ -230,24 +230,25 @@ int main(){
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
- */
 
+
+/*
     playerOne.addPiece(1,1,true,3);
- /*   playerOne.addPiece(1,2,false,2);
+    playerOne.addPiece(1,2,false,2);
     playerOne.addPiece(2,2,false,2);
     playerOne.addPiece(3,2,true,1);
     playerOne.addPiece(3,3,true,1);
-*/
+
     playerOne.showBoard(cout);
 
     playerTwo.addPiece(3,5,true,3);
-  /*  playerTwo.addPiece(3,3,false,2);
+    playerTwo.addPiece(3,3,false,2);
     playerTwo.addPiece(4,3,false,2);
     playerTwo.addPiece(5,3,true,1);
     playerTwo.addPiece(5,4,true,1);
-*/
-    playerTwo.showBoard(cout);
 
+    playerTwo.showBoard(cout);
+*/
     cout << endl << "****************************" << endl;
 
 
