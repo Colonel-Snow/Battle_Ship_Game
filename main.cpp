@@ -31,7 +31,7 @@ int main(){
 
 	Player playerOne(name1);
 	Player playerTwo(name2);
-/*
+
     // ****** PLACING SHIPS FOR PLAYER 1 ******
 	cout << "        PLACING PIECES     " << endl;
 	cout << " You will be given 5 ships: [1] Big ship, [2] Medium ships, and [2] Small Ships" << endl;
@@ -240,7 +240,7 @@ int main(){
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
 
-*/
+/*
 
     playerOne.addPiece(1,1,true,3);
     playerOne.addPiece(1,2,false,2);
@@ -257,7 +257,7 @@ int main(){
     playerTwo.addPiece(5,4,true,1);
 
     playerTwo.showBoard(cout);
-
+*/
     cout << endl << "****************************" << endl;
 
 
@@ -286,13 +286,12 @@ int main(){
                 cin >> xHit >> yHit;
                 cout << "Attack Placed..." << endl;
 
-                //playerOne.addGuess(xHit, yHit);
 
                 bool isHit = playerTwo.processOpponentShot(xHit, yHit);
 
                 if (isHit) {
                     cout << "Successful Hit!" << endl;
-
+                    playerOne.addGuess(xHit, yHit, "X");
 
                     cout << endl;
                     if (playerTwo.isLost()) {
@@ -308,6 +307,8 @@ int main(){
 
                     }
                 }
+
+                playerOne.addGuess(xHit, yHit, "~");
                 cout << "Shot Missed! better luck next time!" << endl;
                 cout << "Please give the controls to " << playerTwo.getName() << endl;
                 cout << endl << "****************************" << endl;
@@ -346,12 +347,13 @@ int main(){
                 cin >> xHit >> yHit;
                 cout << "Attack Placed..." << endl;
 
-                //playerTwo.addGuess(xHit, yHit);
+
 
                 bool isHit = playerOne.processOpponentShot(xHit, yHit);
 
                 if (isHit) {
                     cout << "Successful Hit!" << endl;
+                    playerTwo.addGuess(xHit, yHit, "X");
 
 
                     cout << endl;
@@ -368,6 +370,8 @@ int main(){
 
                     }
                 }
+
+                playerTwo.addGuess(xHit, yHit, "~");
                 cout << "Shot Missed! better luck next time!" << endl;
                 cout << "Please give the controls to " << playerOne.getName() << endl;
                 cout << endl << "****************************" << endl;

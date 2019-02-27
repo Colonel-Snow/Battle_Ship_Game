@@ -17,7 +17,7 @@ class Player{
         //std::ostream& showPreviousShots(std::ostream&);
 
         std::ostream& showGuessBoard(std::ostream&);
-        void addGuess(int, int);
+        void addGuess(int, int, std::string);
         bool isLost();
 
 
