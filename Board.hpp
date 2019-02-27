@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <string>
 
 #ifndef BOARD_HPP_
 #define BOARD_HPP_
@@ -14,6 +15,7 @@ class Board{
 		void processHit(int, int);
 		bool shipsRemaining();
 		int getBoardSize();
+
 	private:
 		std::vector<std::vector<int>> _squares;
 		int _boardSize = 5;

@@ -82,3 +82,6 @@ void Board::processHit(int x, int y){
 int Board::getBoardSize(){
 	return _boardSize;
 }
+
+
+

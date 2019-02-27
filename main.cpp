@@ -1,5 +1,6 @@
 #include "Board.hpp"
 #include "Player.hpp"
+#include "GuessBoard.h"
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -10,6 +11,7 @@ using std::string;
 int main(){
 
     while(true) {
+
 	cout << "      *******************************" << endl;
 	cout << "           WELCOME TO BATTLESHIP!    " << endl;
 	cout << "      *******************************" << endl;
@@ -18,7 +20,7 @@ int main(){
     cout << " the location of the other's various ships." << endl;
 
     string name1, name2;
-	cout << "      *******************************" << endl;
+	cout << endl << "      *******************************" << endl;
     cout << "    To start, enter that Player's names. " << endl;
     cout << "       Player One: ";
  	cin >> name1;
@@ -29,7 +31,7 @@ int main(){
 
 	Player playerOne(name1);
 	Player playerTwo(name2);
-
+/*
     // ****** PLACING SHIPS FOR PLAYER 1 ******
 	cout << "        PLACING PIECES     " << endl;
 	cout << " You will be given 5 ships: [1] Big ship, [2] Medium ships, and [2] Small Ships" << endl;
@@ -228,23 +230,23 @@ int main(){
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
+ */
 
-
-    /*playerOne.addPiece(1,1,true,3);
-    playerOne.addPiece(1,2,false,2);
+    playerOne.addPiece(1,1,true,3);
+ /*   playerOne.addPiece(1,2,false,2);
     playerOne.addPiece(2,2,false,2);
     playerOne.addPiece(3,2,true,1);
     playerOne.addPiece(3,3,true,1);
-
+*/
     playerOne.showBoard(cout);
 
     playerTwo.addPiece(3,5,true,3);
-    playerTwo.addPiece(3,3,false,2);
+  /*  playerTwo.addPiece(3,3,false,2);
     playerTwo.addPiece(4,3,false,2);
     playerTwo.addPiece(5,3,true,1);
     playerTwo.addPiece(5,4,true,1);
-
-    playerTwo.showBoard(cout);*/
+*/
+    playerTwo.showBoard(cout);
 
     cout << endl << "****************************" << endl;
 
@@ -253,7 +255,7 @@ int main(){
 
     int xHit, yHit, turn = 1;
     bool contGame = true;
-    Board normalBoard;
+
 
         while (contGame) {
 
@@ -263,17 +265,24 @@ int main(){
                 cout << " to guess a hit, please enter the coordinates in the board" << endl;
                 cout << " in the format: x-coordinate [space] y-coordinate" << endl;
                 cout << "****************************" << endl;
-                cout << normalBoard << endl;
-                playerOne.showPreviousShots(cout);
+                cout << "Guess Board:" << endl;
+                cout << "\t [?] unchecked." << endl;
+                cout << "\t [~] Missed Hit." << endl;
+                cout << "\t [X] Successful Hit." << endl;
+
+                playerOne.showGuessBoard(cout);
                 cout << endl << "****************************" << endl;
                 cout << "Place your attack: ";
                 cin >> xHit >> yHit;
                 cout << "Attack Placed..." << endl;
 
-                //playerOne.addLastShot(xHit, yHit);
-                if (playerTwo.processOpponentShot(xHit, yHit)) {
+                playerOne.addGuess(xHit, yHit);
+
+                bool isHit = playerTwo.processOpponentShot(xHit, yHit);
+
+                if (isHit) {
                     cout << "Successful Hit!" << endl;
-                    //playerTwo.showBoard(cout);
+
 
                     cout << endl;
                     if (playerTwo.isLost()) {
@@ -290,26 +299,50 @@ int main(){
                     }
                 }
                 cout << "Shot Missed! better luck next time!" << endl;
+                cout << "Please give the controls to " << playerTwo.getName() << endl;
+                cout << endl << "****************************" << endl;
+
+                cout << "ENTER any NUMBER to continue." << endl;
+                int dummy;
+                cin >> dummy;
+
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
                 cout << endl << "****************************" << endl;
 
                 ++turn;
-            } else {
+            }
+            else {
                 cout << endl << "****************************" << endl;
                 cout << playerTwo.getName() << " it's time to Attack!" << endl;
                 cout << " to guess a hit, please enter the coordinates in the board" << endl;
                 cout << " in the format: x-coordinate [space] y-coordinate" << endl;
                 cout << "****************************" << endl;
-                cout << normalBoard << endl;
-                playerTwo.showPreviousShots(cout);
+                cout << "Guess Board:" << endl;
+                cout << "\t [?] unchecked." << endl;
+                cout << "\t [~] Missed Hit." << endl;
+                cout << "\t [X] Successful Hit." << endl;
+
+                playerTwo.showGuessBoard(cout);
                 cout << endl << "****************************" << endl;
                 cout << "Place your attack: ";
                 cin >> xHit >> yHit;
                 cout << "Attack Placed..." << endl;
 
-                //playerOne.addLastShot(xHit, yHit);
-                if (playerOne.processOpponentShot(xHit, yHit)) {
+                playerTwo.addGuess(xHit, yHit);
+
+                bool isHit = playerOne.processOpponentShot(xHit, yHit);
+
+                if (isHit) {
                     cout << "Successful Hit!" << endl;
-                   // playerOne.showBoard(cout);
+
 
                     cout << endl;
                     if (playerOne.isLost()) {
@@ -326,11 +359,26 @@ int main(){
                     }
                 }
                 cout << "Shot Missed! better luck next time!" << endl;
+                cout << "Please give the controls to " << playerOne.getName() << endl;
+                cout << endl << "****************************" << endl;
+
+                cout << "ENTER any NUMBER to continue." << endl;
+                int dummy;
+                cin >> dummy;
+
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
+                cout << endl << "****************************" << endl;
                 cout << endl << "****************************" << endl;
 
                 ++turn;
             }
-
         }
         cout << "Press [1] to Rematch, [2] to QUIT." << endl;
         int c;

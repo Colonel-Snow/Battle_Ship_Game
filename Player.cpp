@@ -6,11 +6,11 @@ using std::string;
 
 string Player::getName(){return _name;}
 
-void Player::addLastShot(int xCoord, int yCoord, bool isHit){
+/*void Player::addLastShot(int xCoord, int yCoord, bool isHit){
     auto coords = std::make_pair(xCoord, yCoord);
     auto coordsWithHit = std::make_pair(coords, isHit);
     _previousShots.push_back(coordsWithHit);
-}
+}*/
 
 bool Player::processOpponentShot(int xCoord, int yCoord){
     if(_gameBoard.checkForHit(xCoord, yCoord)){
@@ -32,7 +32,7 @@ ostream& Player::showBoard(ostream& os){
     return os;
 }
 
-ostream& Player::showPreviousShots(ostream& os){
+/*ostream& Player::showPreviousShots(ostream& os){
     vector<vector<char>> display;
     for(int y = 0; y < _gameBoard.getBoardSize(); y++){
         display.push_back(vector<char>(_gameBoard.getBoardSize()));
@@ -49,8 +49,20 @@ ostream& Player::showPreviousShots(ostream& os){
             display[coords.second][coords.first] = 'O';
         }
     }
-}
+}*/
 
 bool Player::isLost(){
     return _gameBoard.shipsRemaining();
+}
+
+ostream& Player::showGuessBoard(std::ostream& os){
+    os << _referenceBoard;
+    return os;
+}
+
+void Player::addGuess(int xCoord, int yCoord){
+    if(_gameBoard.checkForHit(xCoord, yCoord)){
+        _referenceBoard.processGuess(xCoord, yCoord, "~");
+    }
+        _referenceBoard.processGuess(xCoord, yCoord, "X");
 }
