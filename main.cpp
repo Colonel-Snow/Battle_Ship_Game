@@ -119,8 +119,13 @@ int main(){
     cout << endl << "****************************" << endl;
 
     // ****** TRANSITION ******
-    cout << "Thanks you "  << playerOne.getName() << " ,";
+    cout << "Thanks you "  << playerOne.getName() << ",";
     cout << " please hand the controls to " << playerTwo.getName() << endl;
+
+        cout << "ENTER any NUMBER to continue." << endl;
+        int dummy;
+        cin >> dummy;
+
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
@@ -218,8 +223,12 @@ int main(){
     cout << endl << "****************************" << endl;
 
     // ****** TRANSITION ******
-    cout << "Thanks you "  << playerTwo.getName() << " ,";
+    cout << "Thanks you "  << playerTwo.getName() << ",";
     cout << " please hand the controls to " << playerOne.getName() << endl;
+
+        cout << "ENTER any NUMBER to continue." << endl;
+        cin >> dummy;
+
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
     cout << endl << "****************************" << endl;
@@ -304,7 +313,6 @@ int main(){
                 cout << endl << "****************************" << endl;
 
                 cout << "ENTER any NUMBER to continue." << endl;
-                int dummy;
                 cin >> dummy;
 
                 cout << endl << "****************************" << endl;
