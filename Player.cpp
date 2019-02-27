@@ -15,8 +15,11 @@ string Player::getName(){return _name;}
 bool Player::processOpponentShot(int xCoord, int yCoord){
     if(_gameBoard.checkForHit(xCoord, yCoord)){
         _gameBoard.processHit(xCoord, yCoord);
+        _referenceBoard.processGuess(xCoord, yCoord, "X");
         return true;
     }
+
+    _referenceBoard.processGuess(xCoord, yCoord, "~");
     return false;
 }
 
